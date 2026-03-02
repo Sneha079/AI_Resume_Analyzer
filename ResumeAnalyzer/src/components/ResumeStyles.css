@@ -1,0 +1,94 @@
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      padding-top: 60px;
+}
+.Title {
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-weight: 600;
+}
+.Label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.Container{
+    background-color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+}
+
+.FormContainer{
+     display: flex;
+  gap: 25px;
+}
+.FormContainer div{
+    flex: 1;  
+    margin: 10px; 
+}
+
+.FileUploadBox{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  border: 1px dashed #07090de0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fc;
+}
+.FileUploadBox:hover {
+  background-color: #e2e6f5;
+  transform: scale(1.02);
+}
+.UploadContent {
+  text-align: center;
+  color: #234ed0;
+}
+.UploadIcon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+.FileName {
+  margin-top: 8px;
+  font-size: 14px;
+  color: black;
+}
+
+.InputDescription{
+    height: 120px;
+    width: 100%; 
+    padding: 12px; 
+    text-align: left;
+     border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 14px;
+     transition: 0.2s;
+    
+}
+
+.AnalyzeButton {
+  width: 100%;
+  height: 45px;
+  margin-top: 25px;
+  background: linear-gradient(90deg, #063bd9, #1cc88a);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.AnalyzeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
