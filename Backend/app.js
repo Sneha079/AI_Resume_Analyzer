@@ -5,12 +5,12 @@ import resumeRoutes from "./routes/resumeRoutes.js";
 const app = express();
 
 //middleware 
-// app.use(cors());
+app.use(cors());
 
-app.use(cors({
-    origin: "https://ai-resume-analyzer-1-92ag.onrender.com",
-    methods: ["GET","POST"]
-}));
+// app.use(cors({
+//     origin: "https://ai-resume-analyzer-1-92ag.onrender.com",
+//     methods: ["GET","POST"]
+// }));
 
 app.use(express.json());
 

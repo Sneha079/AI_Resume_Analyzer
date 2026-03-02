@@ -5,11 +5,11 @@ dotenv.config();
 
 
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
+    apiKey: process.env.GEMINI_API_KEY,
 });
 
 function buildResumeAnalyzerPrompt(text, jobDescription = "") {
-  let basePrompt = `
+    let basePrompt = `
 # Context:
 - You are an AI Resume Analyzer.
 - You will be given Candidate's Resume and Job Description of the role he is applying for.
@@ -27,8 +27,8 @@ RESUME:
 ${text}
 `;
 
-  if (jobDescription) {
-    basePrompt += `
+    if (jobDescription) {
+        basePrompt += `
 Additionally, compare this resume to the following job description:
 
 JOB DESCRIPTION:
@@ -38,33 +38,29 @@ ${jobDescription}
 - Each and every point must have score (example: 3/5)
 - Emoji must be at beginning (example: 4/5 ✅ Skill Match - Explanation...)
 `;
-  }
+    }
 
-  return basePrompt;
+    return basePrompt;
 }
 
 async function analyzeResume(resumeText, jobDescription) {
-  try {
-    if (!resumeText) {
-      return "Resume text is required.";
+    try {
+        if (!resumeText) {
+            return "Resume text is required.";
+        }
+
+        const prompt = buildResumeAnalyzerPrompt(resumeText, jobDescription);
+
+        const response = await ai.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: prompt,
+        });
+
+        return response.text;
+    } catch (error) {
+        console.error("AI Error:", error);
+        return "Error analyzing resume.";
     }
-
-    const prompt = buildResumeAnalyzerPrompt(resumeText, jobDescription);
-
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
-      contents: prompt,
-    //   generationConfig: {
-    //     temperature: 0.1,
-    //     maxOutputTokens: 0.5,
-    //   },
-    });
-
-    return response.text;
-  } catch (error) {
-    console.error("AI Error:", error);
-    return "Error analyzing resume.";
-  }
 }
 
 export default analyzeResume;
