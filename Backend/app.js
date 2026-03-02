@@ -8,7 +8,7 @@ const app = express();
 // app.use(cors());
 
 app.use(cors({
-    origin: "https://ai-resume-analyzer-frontend-qa0q.onrender.com",
+    origin: "https://ai-resume-analyzer-1-92ag.onrender.com",
     methods: ["GET","POST"]
 }));
 
