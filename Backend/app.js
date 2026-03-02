@@ -5,7 +5,13 @@ import resumeRoutes from "./routes/resumeRoutes.js";
 const app = express();
 
 //middleware 
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+    origin: "https://ai-resume-analyzer-frontend-qa0q.onrender.com",
+    methods: ["GET","POST"]
+}));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
