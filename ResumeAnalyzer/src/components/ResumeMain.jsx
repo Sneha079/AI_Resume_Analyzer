@@ -17,12 +17,8 @@ const ResumeMain = () => {
         try {
             const res = await axios.post(
                 // "http://localhost:4000/api/resume/upload", formData
-<<<<<<< HEAD
-                "https://ai-resume-analyzer-mup8.onrender.com", formData
+                "https://ai-resume-analyzer-mup8.onrender.com/api/resume/upload", formData
 
-=======
-                "https://ai-resume-analyzer-kgxk.onrender.com/api/resume/upload",formData
->>>>>>> 060213f (Updated link)
             );
             setAiResult(res.data.aiResponse);
 
