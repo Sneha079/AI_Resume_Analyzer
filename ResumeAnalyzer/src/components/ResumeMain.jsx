@@ -16,7 +16,8 @@ const ResumeMain = () => {
         formData.append("description", description);
         try {
             const res = await axios.post(
-                "http://localhost:4000/api/resume/upload", formData
+                // "http://localhost:4000/api/resume/upload", formData
+                "https://ai-resume-analyzer-kgxk.onrender.com", formData
 
             );
             setAiResult(res.data.aiResponse);
@@ -47,23 +48,23 @@ const ResumeMain = () => {
                             </div>
 
                         </label>
-                          {file && <p className="FileName">Uploaded Successfully {file.name}</p>}
+                        {file && <p className="FileName">Uploaded Successfully {file.name}</p>}
                     </div>
 
 
                     <div>
                         <p className='Lable'>Job Description</p>
-                        <textarea 
-                        placeholder="Enter job description..." 
-                        className='InputDescription'
-                         onChange={(e) => setDescription(e.target.value)} >
+                        <textarea
+                            placeholder="Enter job description..."
+                            className='InputDescription'
+                            onChange={(e) => setDescription(e.target.value)} >
 
-                         </textarea>
+                        </textarea>
                     </div>
                 </div>
                 <button onClick={handleSubmit}
-                 className='AnalyzeButton'
-                   >Analyzer Resume</button>
+                    className='AnalyzeButton'
+                >Analyzer Resume</button>
 
                 {aiResult && (
                     <div>
